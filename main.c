@@ -1,42 +1,22 @@
 #include <stdio.h>
 
-// int main(void)
-// {
-//     int i;
-
-//     for(i=0;i<5;i++)
-//     {
-//         int temp = 1;
-//         printf("temp = %d\n",temp);
-//         temp++;
-//     }
-
-//     return 0;
-// }
-//=>결과 temp = 1
-        // temp = 1
-        // temp = 1
-        // temp = 1
-        // temp = 1
+int inc(int counter);
 
 int main(void)
 {
-    int i;
-    int temp = 1;
-    for(i=0;i<5;i++)
-    {
-//방법 2
-    //  static temp = 1;
-        printf("temp = %d\n",temp);
-        temp++;
-    }
-
+    int i = 10;
+    printf("함수 호출전 i=%d\n",i);
+    i = inc(i);   //inc(i)
+    printf("함수 호출후 i=%d\n",i);
     return 0;
 }
 
-//결과
-// temp = 1
-// temp = 2
-// temp = 3
-// temp = 4
-// temp = 5
+int inc(int counter)
+{
+    counter++;
+    return counter; //반환의 결과를 return -> 변수에 저장
+}
+
+//결과 (9번 줄 주석 부분으로 썼을 때의 결과)
+//함수 호출전 i=10
+//함수 호출후 i=10
