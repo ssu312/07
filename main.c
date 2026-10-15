@@ -1,22 +1,37 @@
 #include <stdio.h>
 
-int inc(int counter);
+// int counter;
 
+// void set_counter()
+// {
+//     counter = 20;
+// }
+// int main(void)
+// {
+//     printf("counter=%d\n",counter);
+//     set_counter();
+//     printf("counter=%d\n",counter);
+//     return 0;
+// }
+
+void f(void);
+
+//int i; (전역변수를 막 사용했을 때의 문제점), 아래는 의도대로 #50개가 찍히는 수정된 코드임. 
 int main(void)
 {
-    int i = 10;
-    printf("함수 호출전 i=%d\n",i);
-    i = inc(i);   //inc(i)
-    printf("함수 호출후 i=%d\n",i);
+    int i;
+    for (i=0;i<5;i++)
+    {
+        f();
+    }
     return 0;
 }
 
-int inc(int counter)
+void f(void)
 {
-    counter++;
-    return counter; //반환의 결과를 return -> 변수에 저장
+    int i;
+    for (i=0;i<10;i++)
+        printf("#");
 }
+//결과: ##########
 
-//결과 (9번 줄 주석 부분으로 썼을 때의 결과)
-//함수 호출전 i=10
-//함수 호출후 i=10
