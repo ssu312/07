@@ -1,37 +1,22 @@
 #include <stdio.h>
 
-// int counter;
+void sub(void);
 
-// void set_counter()
-// {
-//     counter = 20;
-// }
-// int main(void)
-// {
-//     printf("counter=%d\n",counter);
-//     set_counter();
-//     printf("counter=%d\n",counter);
-//     return 0;
-// }
-
-void f(void);
-
-//int i; (전역변수를 막 사용했을 때의 문제점), 아래는 의도대로 #50개가 찍히는 수정된 코드임. 
 int main(void)
 {
     int i;
-    for (i=0;i<5;i++)
-    {
-        f();
-    }
+    for (i=0;i<3;i++)
+        sub();
     return 0;
 }
 
-void f(void)
+void sub(void)
 {
-    int i;
-    for (i=0;i<10;i++)
-        printf("#");
+    int auto_count = 0;
+    static int static_count = 0;
+    auto_count++;
+    static_count++;
+    printf("auto_count=%d\n", auto_count);
+    printf("static_count=%d\n", static_count);
 }
-//결과: ##########
 
